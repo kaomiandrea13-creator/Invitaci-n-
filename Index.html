@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>En memoria de Lucía Cortez Sanches</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Pétalos flotantes de fondo, generados por JS -->
+<div id="petalas" class="petalas-contenedor" aria-hidden="true"></div>
+
+<!-- ===================== PANTALLA 1: SOBRE ===================== -->
+<section id="pantalla-sobre" class="pantalla pantalla-sobre">
+  <div class="sobre-escena">
+    <button id="sobre" class="sobre" aria-label="Toca la carta para abrirla">
+      <span class="sobre-solapa"></span>
+      <span class="sobre-cuerpo">
+        <span class="sobre-sello">
+          <svg viewBox="0 0 100 100" class="azucena-sello" aria-hidden="true">
+            <use href="#icono-azucena"></use>
+          </svg>
+        </span>
+      </span>
+      <span class="sobre-brillo" aria-hidden="true"></span>
+    </button>
+
+    <p class="sobre-texto sobre-texto--titulo">Una invitación especial para ti</p>
+    <p class="sobre-texto sobre-texto--accion">Toca la carta para abrirla</p>
+  </div>
+</section>
+
+<!-- ===================== PANTALLA 2: INVITACIÓN ===================== -->
+<section id="pantalla-invitacion" class="pantalla pantalla-invitacion" hidden>
+
+  <div class="marco-decorativo marco-decorativo--superior" aria-hidden="true">
+    <svg viewBox="0 0 200 60" class="rama-azucenas">
+      <use href="#icono-rama"></use>
+    </svg>
+  </div>
+
+  <div class="contenido-invitacion">
+
+    <p class="linea reveal" data-reveal="1">Te Invitamos</p>
+    <p class="linea reveal" data-reveal="2">Al responso de la que en<br>vida fue</p>
+
+    <h1 class="nombre reveal" data-reveal="3">Lucía Cortez Sanches</h1>
+
+    <div class="marco-foto reveal" data-reveal="4">
+      <div class="marco-foto-anillo">
+        <svg viewBox="0 0 220 220" class="marco-foto-azucenas" aria-hidden="true">
+          <use href="#icono-corona-azucenas"></use>
+        </svg>
+        <div class="marco-foto-interior">
+          <!-- Reemplaza esta imagen por assets/foto.jpg -->
+          <img src="assets/foto.jpg" alt="Fotografía de Lucía Cortez Sanches" class="foto-bisabuela" onerror="this.style.display='none'; this.parentElement.classList.add('sin-foto');">
+          <span class="foto-marcador">Coloca aquí<br>la fotografía</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="linea linea--detalle reveal" data-reveal="5">
+      Teniendo diferentes actividades<br>
+      como: misa en el cementerio y un<br>
+      almuerzo familiar con música y rifa
+    </p>
+
+    <div class="divisor reveal" data-reveal="6" aria-hidden="true">
+      <svg viewBox="0 0 120 24" class="divisor-svg"><use href="#icono-divisor"></use></svg>
+    </div>
+
+    <p class="fecha reveal" data-reveal="7">03 de octubre&nbsp;&bull;&nbsp;11:00&nbsp;am</p>
+
+    <p class="lugar reveal" data-reveal="8">
+      Cementerio Pucusana<br>
+      Divino Niño II
+    </p>
+
+    <div class="acciones reveal" data-reveal="9">
+      <a class="boton boton--principal"
+         href="https://wa.me/51938437529?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20al%20responso%20de%20Luc%C3%ADa%20Cortez%20Sanches"
+         target="_blank" rel="noopener">
+        Confirmar asistencia
+        <span class="boton-sub">+51 938 437 529</span>
+      </a>
+
+      <!-- Si la ubicación exacta no aparece en Maps, reemplaza el href de abajo por tu enlace -->
+      <a class="boton boton--secundario"
+         href="https://www.google.com/maps/search/?api=1&query=Cementerio+Pucusana+Divino+Ni%C3%B1o+II"
+         target="_blank" rel="noopener">
+        Cómo llegar
+      </a>
+    </div>
+
+    <p class="despedida reveal" data-reveal="10">Con cariño, siempre en nuestros corazones</p>
+  </div>
+
+  <div class="marco-decorativo marco-decorativo--inferior" aria-hidden="true">
+    <svg viewBox="0 0 200 60" class="rama-azucenas rama-azucenas--invertida">
+      <use href="#icono-rama"></use>
+    </svg>
+  </div>
+</section>
+
+<!-- Botón de música -->
+<button id="boton-musica" class="boton-musica" aria-label="Activar música" aria-pressed="false">
+  <svg viewBox="0 0 24 24" class="icono-musica"><use href="#icono-nota"></use></svg>
+</button>
+<audio id="audio-fondo" src="assets/musica.mp3" loop preload="none"></audio>
+  <source src="https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloure
+<!-- ===================== SPRITE SVG (íconos reutilizables) ===================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="icono-azucena" viewBox="0 0 100 100">
+      <path d="M50 20 C40 35 40 55 50 75 C60 55 60 35 50 20 Z" fill="currentColor"/>
+      <path d="M50 25 C42 38 42 55 50 68 C58 55 58 38 50 25 Z" fill="none" stroke="#fff" stroke-width="1" opacity="0.4"/>
+      <path d="M30 55 C38 45 46 45 50 50 C46 55 38 58 30 55 Z" fill="currentColor" opacity="0.85"/>
+      <path d="M70 55 C62 45 54 45 50 50 C54 55 62 58 70 55 Z" fill="currentColor" opacity="0.85"/>
+      <circle cx="50" cy="52" r="3" fill="#fff" opacity="0.7"/>
+    </symbol>
+
+    <symbol id="icono-rama" viewBox="0 0 200 60">
+      <path d="M0 30 C50 10 150 10 200 30" fill="none" stroke="#c9a66b" stroke-width="1" opacity="0.55"/>
+      <g fill="#d9aab3">
+        <use href="#icono-azucena" x="20" y="4" width="34" height="34" transform="rotate(-10 37 21)"/>
+        <use href="#icono-azucena" x="83" y="0" width="34" height="34"/>
+        <use href="#icono-azucena" x="146" y="4" width="34" height="34" transform="rotate(10 163 21)"/>
+      </g>
+    </symbol>
+
+    <symbol id="icono-corona-azucenas" viewBox="0 0 220 220">
+      <g fill="#d9aab3">
+        <use href="#icono-azucena" x="93" y="0" width="34" height="34"/>
+        <use href="#icono-azucena" x="160" y="30" width="34" height="34" transform="rotate(45 177 47)"/>
+        <use href="#icono-azucena" x="186" y="93" width="34" height="34" transform="rotate(90 203 110)"/>
+        <use href="#icono-azucena" x="160" y="156" width="34" height="34" transform="rotate(135 177 173)"/>
+        <use href="#icono-azucena" x="93" y="186" width="34" height="34" transform="rotate(180 110 203)"/>
+        <use href="#icono-azucena" x="26" y="156" width="34" height="34" transform="rotate(225 43 173)"/>
+        <use href="#icono-azucena" x="0" y="93" width="34" height="34" transform="rotate(270 17 110)"/>
+        <use href="#icono-azucena" x="26" y="30" width="34" height="34" transform="rotate(315 43 47)"/>
+      </g>
+    </symbol>
+
+    <symbol id="icono-divisor" viewBox="0 0 120 24">
+      <path d="M0 12 H45" stroke="#c9a66b" stroke-width="1" opacity="0.6"/>
+      <path d="M75 12 H120" stroke="#c9a66b" stroke-width="1" opacity="0.6"/>
+      <use href="#icono-azucena" x="46" y="0" width="28" height="24" fill="#c98a97"/>
+    </symbol>
+
+    <symbol id="icono-nota" viewBox="0 0 24 24">
+      <path d="M9 17V5l10-2v12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="6.5" cy="17" r="2.5" fill="currentColor"/>
+      <circle cx="16.5" cy="15" r="2.5" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icono-petalo" viewBox="0 0 20 20">
+      <path d="M10 2 C4 6 4 14 10 18 C16 14 16 6 10 2 Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<script src="script.js"></script>
+</body>
+          </html>
